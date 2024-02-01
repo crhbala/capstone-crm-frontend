@@ -170,10 +170,10 @@ const routes = [
         path:"employee/add-user",
         element:<AddEmployee/>
       },
-      // {
-      //   path: "contacts",
-      //   element: <Contacts />,
-      // },
+      {
+        path: "contacts",
+        element: <Contacts />,
+      },
       {
         path: "tickets",
         element: <Tickets />,

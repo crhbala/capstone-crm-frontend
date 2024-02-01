@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import CustomTable from "../../../components/CustomTable";
 import { convertDateToDateWithoutTime } from "../../../utils/calendarHelpers";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Add as AddIcon } from "@mui/icons-material";
 import { AdminApi } from "../../../service/api/admin/AdminApi";
 import toast from "react-hot-toast";
 
 const Users = () => {
   const [userData, setUserData] = useState();
-
+  const navigate = useNavigate()
   const columns = [
     { label: "Name", name: "name" },
     { label: "Email", name: "email" },
@@ -66,6 +66,13 @@ const Users = () => {
         title="Employee"
         downloadName="employee"
       />
+      <Button
+        onClick={() => {
+          navigate("/admin-dashboard");
+        }}
+      >
+        Back
+      </Button>
     </>
   );
 };

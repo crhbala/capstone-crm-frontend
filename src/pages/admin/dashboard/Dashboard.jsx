@@ -13,7 +13,6 @@ import BarChart from "../../../components/customeChart/PieChart";
 import PieChart from "../../../components/customeChart/PieChart";
 import LineChart from "../../../components/customeChart/LineChart";
 import { AdminApi } from "../../../service/api/admin/AdminApi";
-import CustomTable from "../../../components/CustomTable";
 import { convertDateToDateWithoutTime } from "../../../utils/calendarHelpers";
 import ResentAddUserTable from "./component/ResentAddUserTable";
 
@@ -46,7 +45,7 @@ const Dashboard = () => {
               title="Total Tickets"
               total={dashboardData?.totalTickets}
               color="success"
-              // icon={<img alt="icon" src="/assets/icons/glass/ic_glass_bag.png" />}
+              // icon image
             />
           </Grid>
 
@@ -55,7 +54,7 @@ const Dashboard = () => {
               title="Tickets in-Process"
               total={dashboardData?.TicketInWorking}
               color="info"
-              // icon={<img alt="icon" src="/assets/icons/glass/ic_glass_users.png" />}
+              // icon image
             />
           </Grid>
 
@@ -64,7 +63,7 @@ const Dashboard = () => {
               title="Tickets Open"
               total={dashboardData?.pendingTickets}
               color="warning"
-              // icon={<img alt="icon" src="/assets/icons/glass/ic_glass_buy.png" />}
+              // icon image
             />
           </Grid>
 
@@ -73,7 +72,7 @@ const Dashboard = () => {
               title="Ticket Close"
               total={dashboardData?.closedTickets}
               color="error"
-              // icon={<img alt="icon" src="/assets/icons/glass/ic_glass_message.png" />}
+              // icon image
             />
           </Grid>
 
@@ -98,16 +97,8 @@ const Dashboard = () => {
             }}
           >
             <CardHeader title="Resently Added Employe" sx={{ mb: 5 }} />
-          
-           <ResentAddUserTable 
-              title="Employee"
-              downloadName="employee" />
-            {/* <CustomTable
-              columns={columns}
-              data={userData}
-              title="Employee"
-              downloadName="employee"
-            /> */}
+
+            <ResentAddUserTable title="Employee" downloadName="employee" />
           </Card>
         </Grid>
       </Container>

@@ -6,8 +6,10 @@ import CustomTable from "../../../components/CustomTable";
 import { convertDateToDateWithoutTime } from "../../../utils/calendarHelpers";
 import AddContact from "./AddContact";
 import { Add as AddIcon } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const Contacts = () => {
+  const navigate= useNavigate()
   const [index, setIndex] = useState(0);
   const [contacts] = useState([
     {
@@ -166,7 +168,9 @@ const Contacts = () => {
     <React.Fragment>
       <Box align="end" mb={1}>
         <Button
-          onClick={() => setOpenAddContactModal(true)}
+          //under development please ignore
+          // onClick={() => setOpenAddContactModal(true)}
+
           variant="contained"
         >
           <AddIcon /> Add Contact
@@ -187,6 +191,7 @@ const Contacts = () => {
       >
         <ModalContent contact={contacts[index]} />
       </CustomModal>
+      <Button onClick={()=>{navigate("/admin-dashboard");}}>Back</Button>
     </React.Fragment>
   );
 };

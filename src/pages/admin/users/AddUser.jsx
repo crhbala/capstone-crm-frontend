@@ -11,6 +11,7 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { AdminApi } from "../../../service/api/admin/AdminApi";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const AddUser = () => {
   const navigate=useNavigate();
@@ -123,16 +124,26 @@ const AddUser = () => {
               />
             </Box>
             <LoadingButton
-                loading={isLoading}
-                loadingIndicator="Loading…"
-                variant="contained"
-                onClick={handleSubmit}
-                sx={{
-                  marginTop:2,
-                }}
-              >
-                Invite User
-              </LoadingButton>
+              loading={isLoading}
+              loadingIndicator="Loading…"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={{
+                marginTop: 2,
+              }}
+            >
+              Invite User
+            </LoadingButton>
+            <Button
+              sx={{
+                marginTop: 2,
+              }}
+              onClick={() => {
+                navigate("/admin-dashboard/users");
+              }}
+            >
+              Back
+            </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <Box
@@ -189,7 +200,7 @@ const AddUser = () => {
                   />
                 </Grid>
               </Grid> */}
-             
+
               {/* <Button onClick={handleSubmit} variant="contained">
                 Invite User
               </Button> */}

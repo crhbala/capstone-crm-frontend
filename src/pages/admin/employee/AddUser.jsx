@@ -12,9 +12,10 @@ import { apiUsers } from "../../../services/models/usersModel";
 import toast from "react-hot-toast";
 import { AdminApi } from "../../../service/api/admin/AdminApi";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const AddUser = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -45,12 +46,12 @@ const AddUser = () => {
 
   const inviteUser = (values) => {
     // console.log(values);  apiUsers.post({ ...values}, "", true)
-    AdminApi.addUser({...values},values.role,"register").then((res) => {
-      console.log(res,"responcw");
+    AdminApi.addUser({ ...values }, values.role, "register").then((res) => {
+      console.log(res, "responcw");
       if (res.status === 200) {
         toast.success("User has been invited");
         setIsLoading(false);
-        navigate("/admin-dashboard/employee")
+        navigate("/admin-dashboard/employee");
       } else {
         // console.log(res);
         toast.error(res);
@@ -59,6 +60,7 @@ const AddUser = () => {
     });
   };
 
+  //under development please ignore
   const [checkedUsers, setCheckedUsers] = useState([true, true, true]);
   const [checkedContacts, setCheckedContacts] = useState([true, true, true]);
   const [checkedTickets, setCheckedTickets] = useState([true, true, true]);
@@ -124,16 +126,26 @@ const AddUser = () => {
               />
             </Box>
             <LoadingButton
-                loading={isLoading}
-                loadingIndicator="Loading…"
-                variant="contained"
-                onClick={handleSubmit}
-                sx={{
-                  marginTop:2,
-                }}
-              >
-                Invite User
-              </LoadingButton>
+              loading={isLoading}
+              loadingIndicator="Loading…"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={{
+                marginTop: 2,
+              }}
+            >
+              Invite User
+            </LoadingButton>
+            <Button
+              sx={{
+                marginTop: 2,
+              }}
+              onClick={() => {
+                navigate("/admin-dashboard/employee");
+              }}
+            >
+              Back
+            </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <Box
@@ -145,7 +157,9 @@ const AddUser = () => {
                 // marginTop: 5,
               }}
             >
-              {/* <Typography component={"p"} variant={"h6"}>
+              {/*
+              //under development please ignore
+              <Typography component={"p"} variant={"h6"}>
                 Permissions
               </Typography>
               <Grid container spacing={2}>
@@ -190,7 +204,7 @@ const AddUser = () => {
                   />
                 </Grid>
               </Grid> */}
-             
+
               {/* <Button onClick={handleSubmit} variant="contained">
                 Invite User
               </Button> */}
@@ -198,7 +212,9 @@ const AddUser = () => {
           </Grid>
         </Grid>
 
-        {/* <CustomSelectChipField
+        {/*
+        //under development please ignore
+        <CustomSelectChipField
             label="Permissions"
             name="permissions"
             placeholder="permissions"

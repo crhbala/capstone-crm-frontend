@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CustomTable from "../../../components/CustomTable";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { Add as AddIcon } from "@mui/icons-material";
 import { userApi } from "../../../service/api/user/userApi";
@@ -10,7 +10,7 @@ import { convertDateToDateWithoutTime } from "../../../utils/calendarHelpers";
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  const navigate = useNavigate()
   const user=useGetuserData(); 
 
 
@@ -75,6 +75,7 @@ const Tickets = () => {
       ) : (
         <CustomTable columns={columns} data={tickets} title="Tickets" />
       )}
+      <Button onClick={()=>{navigate("/user-dashboard");}} >Back</Button>
     </React.Fragment>
   );
 };
